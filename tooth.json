@@ -1,20 +1,24 @@
 {
-  "format_version": 1,
-  "tooth": "github.com/lgc-LLSEDev/SimpleTransferCmd",
-  "version": "0.1.0",
-  "dependencies": {},
-  "information": {
+  "$schema": "https://raw.githubusercontent.com/lippkg/lip/main/schemas/tooth.v2.schema.json",
+  "format_version": 2,
+  "tooth": "github.com/lgc-LLDev/SimpleTransferCmd",
+  "version": "0.1.1",
+  "info": {
     "name": "SimpleTransferCmd",
-    "description": "简易跨服指令",
-    "author": "lgc2333",
-    "license": "Apache-2.0",
-    "homepage": "https://github.com/lgc-LLSEDev/SimpleTransferCmd"
+    "description": "A plugin provides the `/transfer` command",
+    "author": "student_2333",
+    "tags": ["plugin", "lse", "quickjs", "transfer"]
   },
-  "placement": [
-    {
-      "source": "SimpleTransferCmd.js",
-      "destination": "plugins/SimpleTransferCmd.js"
-    }
-  ],
-  "possession": []
+  "files": {
+    "place": [
+      {
+        "src": "SimpleTransferCmd.js",
+        "dest": "plugins/SimpleTransferCmd/SimpleTransferCmd.js"
+      },
+      {
+        "src": "manifest.json",
+        "dest": "plugins/SimpleTransferCmd/manifest.json"
+      }
+    ]
+  }
 }

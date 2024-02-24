@@ -1,0 +1,10 @@
+{
+  "entry": "SimpleTransferCmd.js",
+  "name": "SimpleTransferCmd",
+  "type": "lse-quickjs",
+  "dependencies": [
+    {
+      "name": "legacy-script-engine-quickjs"
+    }
+  ]
+}
