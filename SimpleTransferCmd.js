@@ -2,16 +2,16 @@
 /// <reference path="../HelperLib/src/index.d.ts"/>
 /* global ll mc PermType ParamType */
 
-const PLUGIN_NAME = 'SimpleTransferCmd';
+const PLUGIN_NAME = 'SimpleTransferCmd'
 /** @type {[number, number, number]} */
-const PLUGIN_VERSION = [0, 1, 1];
+const PLUGIN_VERSION = [0, 1, 1]
 
 mc.listen('onServerStarted', () => {
-  const cmdTransfer = mc.newCommand('transfer', '跨服指令', PermType.Any);
-  cmdTransfer.mandatory('host', ParamType.String);
-  cmdTransfer.mandatory('port', ParamType.Int);
-  cmdTransfer.optional('player', ParamType.Player);
-  cmdTransfer.overload(['host', 'port', 'player']);
+  const cmdTransfer = mc.newCommand('transfer', '跨服指令', PermType.Any)
+  cmdTransfer.mandatory('host', ParamType.String)
+  cmdTransfer.mandatory('port', ParamType.Int)
+  cmdTransfer.optional('player', ParamType.Player)
+  cmdTransfer.overload(['host', 'port', 'player'])
   cmdTransfer.setCallback(
     /**
      * @param {Command} _
@@ -21,23 +21,23 @@ mc.listen('onServerStarted', () => {
      */
     (_, { player }, out, { host, port, player: selector }) => {
       if (!player && !selector) {
-        out.error('请指定要跨服的玩家');
-        return false;
+        out.error('请指定要跨服的玩家')
+        return false
       }
       if (player && selector && player.permLevel < 1) {
-        out.error('仅OP可以传送其他人');
-        return false;
+        out.error('仅OP可以传送其他人')
+        return false
       }
 
-      const willTransfer = selector || [player];
-      willTransfer.forEach((p) => (p ? p.transServer(host, port) : undefined));
-      return true;
-    }
-  );
-  cmdTransfer.setup();
-});
+      const willTransfer = selector || [player]
+      willTransfer.forEach((p) => (p ? p.transServer(host, port) : undefined))
+      return true
+    },
+  )
+  cmdTransfer.setup()
+})
 
 ll.registerPlugin(PLUGIN_NAME, '跨服指令', PLUGIN_VERSION, {
   Author: 'student_2333',
   License: 'Apache-2.0',
-});
+})
